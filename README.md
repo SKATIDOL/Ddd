@@ -16,11 +16,14 @@ venv\Scripts\activate
 sourse venv/bin/activate
 
 3) Далее, не зависимо от вашей OC, прописываем данные команды:
+# Для того чтоб запустить проект прописываем:
+pip install -r requirements.\prod/.txt
+# Чтобы протестировать проект пишем:
+pip install -r requirements.\dev/.txt
+# ля разработки проекта прописываем:
+pip install -r requirements.\dev/.txt
 
-pip install -r requirements.txt
-
-cd Ddd
-
+чтобы запустить сервер в dev-режиме:
 cd lyceum
 
 python manage.py runserver
