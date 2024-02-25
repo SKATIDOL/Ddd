@@ -20,7 +20,7 @@ sourse venv/bin/activate
 pip install -r requirements.\prod/.txt
 # Чтобы протестировать проект пишем:
 pip install -r requirements.\dev/.txt
-# ля разработки проекта прописываем:
+# Для разработки проекта прописываем:
 pip install -r requirements.\dev/.txt
 
 чтобы запустить сервер в dev-режиме:
