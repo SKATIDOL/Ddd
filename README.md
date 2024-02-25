@@ -23,7 +23,7 @@ pip install -r requirements.\dev/.txt
 # Для разработки проекта прописываем:
 pip install -r requirements.\dev/.txt
 
-чтобы запустить сервер в dev-режиме:
+# чтобы запустить сервер в dev-режиме:
 cd lyceum
 
 python manage.py runserver
