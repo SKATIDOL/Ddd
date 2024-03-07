@@ -21,7 +21,7 @@ ALLOWED_HOSTS = list(
 )
 
 
-SECRET_KEY = os.getenv('DJANGO_SECRET_KEY', '7894')
+SECRET_KEY = os.getenv('DJANGO_SECRET_KEY', 'asdj')
 
 
 # Application definition
