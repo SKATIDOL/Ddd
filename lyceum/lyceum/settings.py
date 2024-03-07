@@ -18,16 +18,21 @@ from dotenv import load_dotenv
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 
-# Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
+import os
+from pathlib import Path
 
-# SECURITY WARNING: keep the secret key used in production secret!
+from dotenv import load_dotenv
+
 load_dotenv()
-SECRET_KEY = os.getenv('SECRET_KEY')
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = os.getenv('DJANGO_DEBUG', 'False').lower() == 'true'
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = list(
+    map(str.strip, os.getenv('DJANGO_ALLOWED_HOSTS', '*').split(','))
+)
+
+
+SECRET_KEY = os.getenv('DJANGO_SECRET_KEY', '8567')
+
 
 # Application definition
 
@@ -83,7 +88,12 @@ DATABASES = {
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
-
+if DEBUG:
+    INSTALLED_APPS.append('debug_toolbar')
+    MIDDLEWARE.append('debug_toolbar.middleware.DebugToolbarMiddleware',)
+    INTERNAL_IPS = [
+        '127.0.0.1',
+    ]
 
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
