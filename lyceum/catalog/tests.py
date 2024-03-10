@@ -24,6 +24,7 @@ class StaticURL(TestCase):
         ('232%', HTTPStatus.NOT_FOUND),
         ('-0', HTTPStatus.NOT_FOUND),
         ('-1', HTTPStatus.NOT_FOUND),
+        ('0193920100101jsjdhdbs$$$', HTTPStatus.NOT_FOUND),
     ])
     def test_catalog_fff(self, fff, expected_status):
         status_code = Client().get(f'/catalog/{fff}/').status_code
@@ -70,6 +71,7 @@ class StaticUrlTest(TestCase):
         ('232%', HTTPStatus.NOT_FOUND),
         ('-0', HTTPStatus.NOT_FOUND),
         ('-1', HTTPStatus.NOT_FOUND),
+        ('0193920100101jsjdhdbs$$$', HTTPStatus.NOT_FOUND),
     ])
     def test_catalog_re(self, re, expected_status):
         status_code = Client().get(f'/catalog/converter/{re}/').status_code
