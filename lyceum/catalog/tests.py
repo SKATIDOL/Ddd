@@ -25,12 +25,12 @@ class StaticURL(TestCase):
         ('-0', HTTPStatus.NOT_FOUND),
         ('-1', HTTPStatus.NOT_FOUND),
     ])
-    def test_catalog_int(self, da, expected_status):
-        status_code = Client().get(f'/catalog/{da}/').status_code
+    def test_catalog_fff(self, fff, expected_status):
+        status_code = Client().get(f'/catalog/{fff}/').status_code
         self.assertEqual(
             status_code,
             expected_status,
-            msg=f'/catalog/{da}/ get not {expected_status}',
+            msg=f'/catalog/{fff}/ get not {expected_status}',
         )
 
 
@@ -48,12 +48,12 @@ class StaticURLTest(TestCase):
         ('-0', HTTPStatus.NOT_FOUND),
         ('-1', HTTPStatus.NOT_FOUND),
     ])
-    def test_catalog_re(self, perem, expected_status):
-        status_code = Client().get(f'/catalog/re/{perem}/').status_code
+    def test_catalog_rrr(self, rrr, expected_status):
+        status_code = Client().get(f'/catalog/re/{rrr}/').status_code
         self.assertEqual(
             status_code,
             expected_status,
-            msg=f'/catalog/re/{perem}/ get not {expected_status}',
+            msg=f'/catalog/re/{rrr}/ get not {expected_status}',
         )
 
 
@@ -71,10 +71,10 @@ class StaticUrlTest(TestCase):
         ('-0', HTTPStatus.NOT_FOUND),
         ('-1', HTTPStatus.NOT_FOUND),
     ])
-    def test_catalog_converter(self, peren, expected_status):
-        status_code = Client().get(f'/catalog/converter/{peren}/').status_code
+    def test_catalog_re(self, re, expected_status):
+        status_code = Client().get(f'/catalog/converter/{re}/').status_code
         self.assertEqual(
             status_code,
             expected_status,
-            msg=f'/catalog/converter/{peren}/ get not {expected_status}',
+            msg=f'/catalog/converter/{re}/ get not {expected_status}',
         )
